@@ -1,5 +1,12 @@
-// get display field and set default to 0
+// populate display when buttons are clicked
 const display = document.querySelector(".display");
+const numpadButtons = document.querySelectorAll(".numpad>button");
+numpadButtons.forEach((btn) => {
+  let number = btn.textContent;
+  btn.addEventListener("click", () => {
+    display.textContent += number;
+  });
+});
 
 // operator functions
 function add(x, y) {
