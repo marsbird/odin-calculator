@@ -15,15 +15,15 @@ function divide(x, y) {
   return x / y;
 }
 
-function operate(x,y,operator) {
-    switch (operator) {
-        case "add":
-            return add(x,y);
-        case "subtract":
-            return subtract(x,y);
-        case "multiply":
-            return multiply(x,y);
-        case "divide":
-            return divide(x,y);
-    };
-};
+function operate(x, y, operator) {
+  switch (operator) {
+    case "add":
+      return add(x, y);
+    case "subtract":
+      return subtract(x, y);
+    case "multiply":
+      return multiply(x, y);
+    case "divide":
+      return divide(x, y);
+  }
+}
