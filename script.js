@@ -1,4 +1,4 @@
-// populate display when buttons are clicked
+// event listener for numpad
 const display = document.querySelector(".display");
 const numpadButtons = document.querySelectorAll(".numpad>button");
 numpadButtons.forEach((btn) => {
@@ -34,3 +34,17 @@ function operate(x, y, operator) {
       return divide(x, y);
   }
 }
+
+
+// 1. send numbers to display when clicked
+// 2. when operator is clicked
+//     send display number to outside variable 
+//     and send operator to outside variable
+//     ready display to clear itself on next numpad click
+// 3. when equals is clicked, 
+//     send all variables to operate function 
+//     populate display with result
+// 4. when a second operator is clicked before the result is cleared
+//     send display number to first outside variable
+//     send operator to operator variable
+//     ready display to clear itself on next numpad click
