@@ -2,6 +2,7 @@
 let stageX;
 let stageY;
 let stageOperator;
+let result;
 const display = document.querySelector(".display");
 
 // event listener for numpad
@@ -35,14 +36,22 @@ numpadButtons.forEach((btn) => {
 const operatorButtons = document.querySelectorAll(".operators>button");
 operatorButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
-        stageOperator = btn.id;
+        if (stageY === undefined) {
+            stageOperator = btn.id;
+        } else {
+            result = operate(stageX, stageY, stageOperator);
+            display.textContent = result;
+            stageX = result;
+            stageY = undefined;
+            stageOperator = btn.id;
+        }
     });
 });
 
 // event listener for equals
 const equalsButton = document.querySelector("#equals");
 equalsButton.addEventListener("click", () => {
-    let result = operate(stageX, stageY, stageOperator);
+    result = operate(stageX, stageY, stageOperator);
     display.textContent = result;
     stageX = undefined;
     stageY = undefined;
