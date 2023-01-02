@@ -1,9 +1,10 @@
+// assign basic variables
 let stageX;
 let stageY;
 let stageOperator;
+const display = document.querySelector(".display");
 
 // event listener for numpad
-const display = document.querySelector(".display");
 const numpadButtons = document.querySelectorAll(".numpad>button");
 numpadButtons.forEach((btn) => {
     let digit = parseInt(btn.textContent);
@@ -28,6 +29,24 @@ numpadButtons.forEach((btn) => {
             display.textContent = stageY;
         }
     });
+});
+
+// event listener for operators
+const operatorButtons = document.querySelectorAll(".operators>button");
+operatorButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+        stageOperator = btn.id;
+    });
+});
+
+// event listener for equals
+const equalsButton = document.querySelector("#equals");
+equalsButton.addEventListener("click", () => {
+    let result = operate(stageX, stageY, stageOperator);
+    display.textContent = result;
+    stageX = undefined;
+    stageY = undefined;
+    stageOperator = undefined;
 });
 
 // operator functions
