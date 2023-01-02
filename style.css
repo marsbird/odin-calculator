@@ -12,6 +12,7 @@
     grid-column: 1 / span 3;
 }
 
+/* operators & equals button */
 #divide {
     grid-row: 2;
     grid-column: 4;
@@ -33,6 +34,7 @@
     grid-column: 4;
 }
 
+/* numpad */
 #seven {
     grid-row: 3;
     grid-column: 1;
