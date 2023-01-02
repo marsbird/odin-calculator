@@ -3,10 +3,10 @@ let stageX;
 let stageY;
 let stageOperator;
 let result;
-const display = document.querySelector(".display");
+const display = document.querySelector("#display");
 
 // event listener for numpad
-const numpadButtons = document.querySelectorAll(".numpad>button");
+const numpadButtons = document.querySelectorAll(".numpad");
 numpadButtons.forEach((btn) => {
     let digit = parseInt(btn.textContent);
     btn.addEventListener("click", () => {
@@ -33,7 +33,7 @@ numpadButtons.forEach((btn) => {
 });
 
 // event listener for operators
-const operatorButtons = document.querySelectorAll(".operators>button");
+const operatorButtons = document.querySelectorAll(".operators");
 operatorButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
         if (stageY === undefined) {
