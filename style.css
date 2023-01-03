@@ -7,9 +7,14 @@
     grid-column: 1;
 }
 
+/* top row */
 #clear {
     grid-row: 2;
-    grid-column: 1 / span 3;
+    grid-column: 1 / span 2;
+}
+#signflip {
+    grid-row: 2;
+    grid-column: 3;
 }
 
 /* operators & equals button */

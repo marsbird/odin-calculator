@@ -4,6 +4,7 @@ const numpadBtns = document.querySelectorAll(".numpad");
 const operatorBtns = document.querySelectorAll(".operators");
 const equalsBtn = document.querySelector("#equals");
 const clearBtn = document.querySelector("#clear");
+const signflipBtn = document.querySelector("#signflip");
 
 // initialize variables
 let x;
@@ -72,4 +73,19 @@ clearBtn.addEventListener("click", () => {
     operator = undefined;
     result = undefined;
     display.textContent = "0";
+});
+signflipBtn.addEventListener("click", () => {
+    if (operator === undefined) {
+        // if 0, do nothing
+        if (!x) return;
+        // default
+        x *= -1;
+        display.textContent = x;
+    } else {
+        // if 0, do nothing
+        if (!y) return;
+        // default
+        y *= -1;
+        display.textContent = y;
+    }
 });
