@@ -1,33 +1,22 @@
 // assign basic variables
-let stageX;
-let stageY;
-let stageOperator;
+let x;
+let operator;
+let y;
 let result;
 const display = document.querySelector("#display");
 
 // event listener for numpad
 const numpadButtons = document.querySelectorAll(".numpad");
 numpadButtons.forEach((btn) => {
-    let digit = parseInt(btn.textContent);
+    let number = parseInt(btn.textContent);
     btn.addEventListener("click", () => {
-        // if stageOperator is undefined, then assign digit to X; else assign it to Y
-        if (stageOperator === undefined) {
-            // if stageX is undefined, simply assign the digit. Otherwise, multiply by 10 and add the digit
-            if (stageX === undefined) {
-                stageX = digit;
-            } else {
-                stageX *= 10;
-                stageX += digit;
-            }
-            display.textContent = stageX;
+        // if operator is undefined, then assign number to X; else assign it to Y
+        if (operator === undefined) {
+            x = logNumber(x, number);
+            display.textContent = x;
         } else {
-            if (stageY === undefined) {
-                stageY = digit;
-            } else {
-                stageY *= 10;
-                stageY += digit;
-            }
-            display.textContent = stageY;
+            y = logNumber(y, number);
+            display.textContent = y;
         }
     });
 });
@@ -36,14 +25,14 @@ numpadButtons.forEach((btn) => {
 const operatorButtons = document.querySelectorAll(".operators");
 operatorButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
-        if (stageY === undefined) {
-            stageOperator = btn.id;
+        if (y === undefined) {
+            operator = btn.id;
         } else {
-            result = operate(stageX, stageY, stageOperator);
+            result = operate(x, y, operator);
             display.textContent = result;
-            stageX = result;
-            stageY = undefined;
-            stageOperator = btn.id;
+            x = result;
+            y = undefined;
+            operator = btn.id;
         }
     });
 });
@@ -51,12 +40,17 @@ operatorButtons.forEach((btn) => {
 // event listener for equals
 const equalsButton = document.querySelector("#equals");
 equalsButton.addEventListener("click", () => {
-    result = operate(stageX, stageY, stageOperator);
+    result = operate(x, y, operator);
     display.textContent = result;
-    stageX = undefined;
-    stageY = undefined;
-    stageOperator = undefined;
+    x = undefined;
+    y = undefined;
+    operator = undefined;
 });
+
+// numpad functions
+function logNumber(previous, input) {
+    previous === undefined ? input : 10 * previous + input;
+}
 
 // operator functions
 function add(x, y) {
