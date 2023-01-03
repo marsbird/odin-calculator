@@ -24,13 +24,17 @@ button {
     font-size: x-large;
 }
 
-/* top row */
+/* misc */
 #clear {
     grid-row: 2;
     grid-column: 1 / span 2;
 }
 #signflip {
     grid-row: 2;
+    grid-column: 3;
+}
+#decimal {
+    grid-row: 6;
     grid-column: 3;
 }
 
@@ -95,5 +99,5 @@ button {
 }
 #zero {
     grid-row: 6;
-    grid-column: 1 / span 3;
+    grid-column: 1 / span 2;
 }
