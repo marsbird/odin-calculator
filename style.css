@@ -1,10 +1,27 @@
+body {
+    display: flex;
+    justify-content: center;
+    padding: 10%;
+
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: large;
+}
+
+button {
+    font-size: large;
+    min-height: 3rem;
+    min-width: 3rem;
+}
+
 .calculator {
     display: grid;
 }
 
 #display {
     grid-row: 1;
-    grid-column: 1;
+    grid-column: 1 / span 4;
+    padding: 0.5rem;
+    font-size: x-large;
 }
 
 /* top row */
