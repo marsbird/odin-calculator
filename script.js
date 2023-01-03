@@ -3,6 +3,7 @@ const display = document.querySelector("#display");
 const numpadBtns = document.querySelectorAll(".numpad");
 const operatorBtns = document.querySelectorAll(".operators");
 const equalsBtn = document.querySelector("#equals");
+const clearBtn = document.querySelector("#clear");
 
 // initialize variables
 let x;
@@ -11,8 +12,8 @@ let y;
 let result;
 
 // define functions
-function logNumber(previous, input) {
-    previous === undefined ? input : 10 * previous + input;
+function inputNewDigit(previous, input) {
+    return previous === undefined ? input : 10 * previous + input;
 }
 function operate(x, y, operator) {
     switch (operator) {
@@ -34,10 +35,10 @@ numpadBtns.forEach((btn) => {
     // on click, assign number to (either x or y)
     btn.addEventListener("click", () => {
         if (operator === undefined) {
-            x = logNumber(x, number);
+            x = inputNewDigit(x, number);
             display.textContent = x;
         } else {
-            y = logNumber(y, number);
+            y = inputNewDigit(y, number);
             display.textContent = y;
         }
     });
@@ -56,9 +57,19 @@ operatorBtns.forEach((btn) => {
     });
 });
 equalsBtn.addEventListener("click", () => {
+    // if equals clicked before operator, do nothing
+    if (operator === undefined) return;
+    // default
     result = operate(x, y, operator);
     display.textContent = result;
+    x = result;
+    y = undefined;
+    operator = undefined;
+});
+clearBtn.addEventListener("click", () => {
     x = undefined;
     y = undefined;
     operator = undefined;
+    result = undefined;
+    display.textContent = "0";
 });
