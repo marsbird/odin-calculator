@@ -20,6 +20,8 @@ button {
 #display {
     grid-row: 1;
     grid-column: 1 / span 4;
+
+    text-align: right;
     padding: 0.5rem;
     font-size: x-large;
 }
