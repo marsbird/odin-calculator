@@ -37,10 +37,10 @@ numpadBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
         if (operator === undefined) {
             x = inputNewDigit(x, number);
-            display.textContent = x.toLocaleString('en-US');
+            display.textContent = x.toLocaleString("en-US");
         } else {
             y = inputNewDigit(y, number);
-            display.textContent = y.toLocaleString('en-US');
+            display.textContent = y.toLocaleString("en-US");
         }
     });
 });
@@ -50,7 +50,7 @@ operatorBtns.forEach((btn) => {
             operator = btn.id;
         } else {
             result = operate(x, y, operator);
-            display.textContent = result.toLocaleString('en-US');
+            display.textContent = result.toLocaleString("en-US");
             x = result;
             y = undefined;
             operator = btn.id;
@@ -62,7 +62,7 @@ equalsBtn.addEventListener("click", () => {
     if (operator === undefined) return;
     // default
     result = operate(x, y, operator);
-    display.textContent = result.toLocaleString('en-US');
+    display.textContent = result.toLocaleString("en-US");
     x = result;
     y = undefined;
     operator = undefined;
@@ -80,12 +80,12 @@ signflipBtn.addEventListener("click", () => {
         if (!x) return;
         // default
         x *= -1;
-        display.textContent = x.toLocaleString('en-US');
+        display.textContent = x.toLocaleString("en-US");
     } else {
         // if 0, do nothing
         if (!y) return;
         // default
         y *= -1;
-        display.textContent = y.toLocaleString('en-US');
+        display.textContent = y.toLocaleString("en-US");
     }
 });
