@@ -14,7 +14,13 @@ let result;
 
 // define functions
 function inputNewDigit(previous, input) {
-    return previous === undefined ? input : 10 * previous + input;
+    if (previous === undefined) {
+        return input;
+    }
+    if (previous < 0) {
+        return 10 * previous - input;
+    }
+    return 10 * previous + input;
 }
 function operate(x, y, operator) {
     switch (operator) {
